@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="cartApp">
+<head>
+  <title>AngularJS Shopping Cart</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 360px; margin-top: 10px; }
+    th, td { border: 1px solid #aaa; padding: 6px; text-align: left; }
+  </style>
+</head>
+<body ng-controller="CartCtrl">
+  <h2>Shopping Cart Application</h2>
+
+  <h3>Select Items by Category</h3>
+  <div ng-repeat="p in products">
+    <label>
+      <input type="checkbox" ng-model="p.selected">
+      <b>[{{p.category}}]</b> {{p.name}} - Rs. {{p.price}}
+    </label>
+  </div>
+  <br>
+
+  <button ng-click="submitCart()">Submit</button>
+
+  <div ng-show="submitted">
+    <h3>Cart Items</h3>
+    <table ng-if="cart.length > 0">
+      <tr>
+        <th>Category</th>
+        <th>Item</th>
+        <th>Price (Rs.)</th>
+      </tr>
+      <tr ng-repeat="item in cart">
+        <td>{{item.category}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+      </tr>
+      <tr>
+        <th colspan="2">Total Price</th>
+        <th>Rs. {{total}}</th>
+      </tr>
+    </table>
+    <p ng-if="cart.length === 0">No items selected.</p>
+  </div>
+
+  <script>
+    angular.module("cartApp", []).controller("CartCtrl", function($scope) {
+      $scope.products = [
+        { category: "Food", name: "Rice", price: 60, selected: false },
+        { category: "Food", name: "Milk", price: 30, selected: false },
+        { category: "Stationery", name: "Pen", price: 10, selected: false },
+        { category: "Stationery", name: "Notebook", price: 40, selected: false },
+        { category: "Electronics", name: "Mouse", price: 350, selected: false }
+      ];
+
+      $scope.cart = [];
+      $scope.total = 0;
+      $scope.submitted = false;
+
+      $scope.submitCart = function() {
+        $scope.cart = $scope.products.filter(p => p.selected);
+        $scope.total = $scope.cart.reduce((sum, p) => sum + p.price, 0);
+        $scope.submitted = true;
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DHTML Form Validation</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Web Form Validation (DHTML)</h2>
+
+  <form onsubmit="return validate()">
+    <label>Name: <input id="name"></label>
+    <span id="nameErr" class="error"></span><br><br>
+
+    <label>Email: <input id="email" type="email"></label>
+    <span id="emailErr" class="error"></span><br><br>
+
+    <label>Password: <input id="pass" type="password"></label>
+    <span id="passErr" class="error"></span><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validate() {
+      let valid = true;
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let pass = document.getElementById("pass").value;
+
+      document.getElementById("nameErr").textContent = name ? "" : "Name is required";
+      document.getElementById("emailErr").textContent = /\S+@\S+\.\S+/.test(email) ? "" : "Enter valid email";
+      document.getElementById("passErr").textContent = pass.length >= 6 ? "" : "Password must be at least 6 characters";
+
+      if (!name || !/\S+@\S+\.\S+/.test(email) || pass.length < 6) {
+        valid = false;
+      }
+
+      if (valid) {
+        alert("Form validated and submitted successfully!");
+      }
+      return valid;
+    }
+  </script>
+</body>
+</html>

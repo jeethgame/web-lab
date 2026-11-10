@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>AngularJS Directives</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="Ctrl">
+  <h2>Angular Directives: Show, Hide, and Lists</h2>
+
+  <!-- ng-model -->
+  <label>Enter Name: <input type="text" ng-model="name"></label>
+  <p>Hello, {{name}}!</p>
+
+  <!-- ng-click and ng-show / ng-hide -->
+  <button ng-click="visible = !visible">Toggle Visibility</button>
+  <p ng-show="visible" style="color: green;">ng-show: This element is visible.</p>
+  <p ng-hide="visible" style="color: red;">ng-hide: This element is hidden.</p>
+
+  <!-- ng-repeat -->
+  <h3>List of Subjects (ng-repeat)</h3>
+  <ul>
+    <li ng-repeat="x in items">{{x}}</li>
+  </ul>
+
+  <script>
+    var app = angular.module("app", []);
+    app.controller("Ctrl", function($scope) {
+      $scope.name = "Student";
+      $scope.visible = true;
+      $scope.items = ["HTML5", "CSS3", "JavaScript", "AngularJS", "Node.js"];
+    });
+  </script>
+</body>
+</html>

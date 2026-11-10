@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REST API + AJAX Application</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 360px; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    th { background: #f4f4f4; }
+  </style>
+</head>
+<body>
+  <h2>REST API and AJAX Application</h2>
+
+  <h3>Add Product (POST via AJAX)</h3>
+  <input id="name" placeholder="Product Name">
+  <input id="price" type="number" placeholder="Price">
+  <button onclick="addProduct()">Add</button>
+
+  <h3>Product List (GET via AJAX)</h3>
+  <button onclick="getProducts()">Refresh Products</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Price (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    const API = "http://localhost:3000/api/products";
+
+    // AJAX GET request
+    async function getProducts() {
+      try {
+        const res = await fetch(API);
+        const data = await res.json();
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = "";
+
+        data.forEach(p => {
+          tbody.innerHTML += `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.price}</td></tr>`;
+        });
+      } catch (err) {
+        alert("Make sure server.js is running on http://localhost:3000");
+      }
+    }
+
+    // AJAX POST request
+    async function addProduct() {
+      const name = document.getElementById("name").value.trim();
+      const price = document.getElementById("price").value.trim();
+      if (!name || !price) {
+        alert("Please enter both product name and price");
+        return;
+      }
+
+      await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, price })
+      });
+
+      document.getElementById("name").value = "";
+      document.getElementById("price").value = "";
+      getProducts();
+    }
+
+    // Initial load
+    getProducts();
+  </script>
+</body>
+</html>

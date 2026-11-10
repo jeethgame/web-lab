@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="marketApp">
+<head>
+  <title>Supermarket Products Sorted</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 420px; margin-top: 15px; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+    th { background: #eee; }
+  </style>
+</head>
+<body ng-controller="MarketCtrl">
+  <h2>Supermarket Product Details</h2>
+
+  <label>Search: <input type="text" ng-model="query" placeholder="Filter by name/brand"></label>
+  <br><br>
+
+  <label>Sort Order:
+    <select ng-model="reverse">
+      <option ng-value="false">Price: Low to High</option>
+      <option ng-value="true">Price: High to Low</option>
+    </select>
+  </label>
+
+  <!-- Table with Price field in sorted order using AngularJS orderBy -->
+  <table>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Brand</th>
+      <th>Price (Rs.)</th>
+    </tr>
+    <tr ng-repeat="p in products | filter:query | orderBy:'price':reverse">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.brand}}</td>
+      <td>{{p.price}}</td>
+    </tr>
+  </table>
+
+  <script>
+    angular.module("marketApp", []).controller("MarketCtrl", function($scope) {
+      $scope.reverse = false;
+
+      // Product details of different brands retrieved from database
+      $scope.products = [
+        { id: 101, name: "Soap", brand: "Dove", price: 55 },
+        { id: 102, name: "Soap", brand: "Lux", price: 32 },
+        { id: 103, name: "Soap", brand: "Pears", price: 48 },
+        { id: 104, name: "Rice", brand: "Daawat", price: 75 },
+        { id: 105, name: "Rice", brand: "India Gate", price: 95 },
+        { id: 106, name: "Shampoo", brand: "Pantene", price: 120 },
+        { id: 107, name: "Shampoo", brand: "Sunsilk", price: 85 }
+      ];
+    });
+  </script>
+</body>
+</html>
