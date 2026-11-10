@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ML1503 - Web Programming Lab Solutions</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 12mm 12mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #0f172a;
+      line-height: 1.35;
+      margin: 0;
+      padding: 0;
+      font-size: 11.5px;
+      background: #ffffff;
+    }
+    .header {
+      text-align: center;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #1e3a8a;
+    }
+    .header h1 {
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      margin: 0 0 2px 0;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+    .header h2 {
+      font-size: 13px;
+      margin: 0;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+    .header p {
+      margin: 2px 0 0 0;
+      font-size: 11px;
+      color: #475569;
+    }
+
+    .exp-wrapper {
+      margin-bottom: 16px;
+    }
+
+    .exp-header {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #2563eb;
+      padding: 6px 10px;
+      margin: 8px 0 6px 0;
+      border-radius: 4px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    .exp-title {
+      font-weight: 700;
+      font-size: 12.5px;
+      color: #1e3a8a;
+    }
+    .exp-question {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 2px;
+    }
+    .sub-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #334155;
+      margin: 6px 0 3px 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .code-container {
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .file-badge {
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      color: #0f172a;
+      background: #e2e8f0;
+      padding: 2px 6px;
+      display: inline-block;
+      border-radius: 3px 3px 0 0;
+      border: 1px solid #cbd5e1;
+      border-bottom: none;
+    }
+    pre {
+      margin: 0;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0 4px 4px 4px;
+      padding: 6px 8px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9px;
+      line-height: 1.25;
+      color: #0f172a;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      tab-size: 2;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 1px 4px;
+      border-radius: 3px;
+      background: #dbeafe;
+      color: #1e40af;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>ML1503 – Web Programming (Lab Integrated)</h1>
+    <h2>Semester Practical Lab Experiments &amp; Solutions</h2>
+    <p>Direct Question &amp; Concise Solution Manual for All 7 Syllabus Experiments</p>
+  </div>
+
+  <!-- EXPERIMENT 1 -->
+  <div class="exp-wrapper">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 1 <span class="tag">HTML5</span></div>
+      <div class="exp-question">Question: Design a Webpage using all HTML elements.</div>
+    </div>
+    <div class="code-container">
+      <div class="file-badge">exp1/exp1.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;All HTML Elements&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Heading 1&lt;/h1&gt;
+  &lt;h2&gt;Heading 2&lt;/h2&gt;
+
+  &lt;p&gt;This paragraph demonstrates &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text.&lt;/p&gt;
+
+  &lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;Sample Hyperlink&lt;/a&gt;
+  &lt;br&gt;&lt;br&gt;
+
+  &lt;img src=&quot;photo.jpg&quot; alt=&quot;Sample Image&quot; width=&quot;150&quot; height=&quot;100&quot;&gt;
+
+  &lt;h3&gt;Unordered List&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h3&gt;Ordered List&lt;/h3&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Node.js&lt;/li&gt;
+    &lt;li&gt;MongoDB&lt;/li&gt;
+    &lt;li&gt;AngularJS&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;h3&gt;Table&lt;/h3&gt;
+  &lt;table border=&quot;1&quot; cellpadding=&quot;6&quot;&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;Developer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Bob&lt;/td&gt;
+      &lt;td&gt;Designer&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+
+  &lt;h3&gt;Form Controls&lt;/h3&gt;
+  &lt;form&gt;
+    &lt;label&gt;Text Field: &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    Gender:
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;m&quot;&gt; Male&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;f&quot;&gt; Female&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    Skills:
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;skill&quot; value=&quot;web&quot;&gt; Web&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;skill&quot; value=&quot;app&quot;&gt; App&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;City:
+      &lt;select name=&quot;city&quot;&gt;
+        &lt;option value=&quot;chennai&quot;&gt;Chennai&lt;/option&gt;
+        &lt;option value=&quot;bangalore&quot;&gt;Bangalore&lt;/option&gt;
+        &lt;option value=&quot;mumbai&quot;&gt;Mumbai&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;input type=&quot;submit&quot; value=&quot;Submit Form&quot;&gt;
+    &lt;button type=&quot;button&quot; onclick=&quot;alert(&#039;Button clicked!&#039;)&quot;&gt;Click Button&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 2 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 2 <span class="tag">CSS3</span></div>
+      <div class="exp-question">Question: Create a web page with all types of Cascading style sheets and CSS Selectors.</div>
+    </div>
+    <div class="code-container">
+      <div class="file-badge">exp2/exp2.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;CSS Types and Selectors&lt;/title&gt;
+  
+  &lt;!-- 1. External CSS --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+
+  &lt;!-- 2. Internal CSS --&gt;
+  &lt;style&gt;
+    /* Element Selector */
+    h2 {
+      color: darkgreen;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 3. Inline CSS --&gt;
+  &lt;h1 style=&quot;color: crimson;&quot;&gt;1. Inline CSS Heading&lt;/h1&gt;
+
+  &lt;!-- Styled via Internal CSS (Element Selector) --&gt;
+  &lt;h2&gt;2. Internal CSS Heading (Element Selector)&lt;/h2&gt;
+
+  &lt;!-- Styled via External CSS (Class Selector) --&gt;
+  &lt;p class=&quot;highlight&quot;&gt;3. External CSS Paragraph (Class Selector)&lt;/p&gt;
+
+  &lt;!-- Styled via External CSS (ID Selector) --&gt;
+  &lt;p id=&quot;unique&quot;&gt;4. External CSS Paragraph (ID Selector)&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+    <div class="code-container">
+      <div class="file-badge">exp2/style.css (External Stylesheet)</div>
+      <pre><code>/* Universal Selector */
+* {
+  font-family: Arial, sans-serif;
+}
+
+/* Class Selector */
+.highlight {
+  background-color: #fff2a8;
+  padding: 8px;
+  border-left: 4px solid orange;
+}
+
+/* ID Selector */
+#unique {
+  color: royalblue;
+  font-weight: bold;
+}
+</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 3 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 3 <span class="tag">JavaScript &amp; DOM / DHTML</span></div>
+      <div class="exp-question">
+        Question: Write Client Side Scripts for Validating Web Form Controls using DHTML.<br>
+        Design the following using JavaScript and DOM:<br>
+        &nbsp;&nbsp;a) Include Image Slide Show and Digital clock.<br>
+        &nbsp;&nbsp;b) Develop a web application to implement online quiz system.
+      </div>
+    </div>
+
+    <div class="sub-title">Part 1: Client Side Scripts for Validating Web Form Controls using DHTML</div>
+    <div class="code-container">
+      <div class="file-badge">exp3/3_validation.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+
+  &lt;h2&gt;Form Validation&lt;/h2&gt;
+
+  &lt;form onsubmit=&quot;return validate()&quot;&gt;
+
+    Name: &lt;input id=&quot;name&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Email: &lt;input id=&quot;email&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Password: &lt;input type=&quot;password&quot; id=&quot;pass&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+
+  &lt;/form&gt;
+
+  &lt;script&gt;
+    function validate() {
+      let n = document.getElementById(&quot;name&quot;).value;
+      let e = document.getElementById(&quot;email&quot;).value;
+      let p = document.getElementById(&quot;pass&quot;).value;
+
+      if (n == &quot;&quot;) {
+        alert(&quot;Enter Name&quot;);
+        return false;
+      }
+
+      if (!/\S+@\S+\.\S+/.test(e)) {
+        alert(&quot;Invalid Email&quot;);
+        return false;
+      }
+
+      if (p.length &lt; 6) {
+        alert(&quot;Password must be 6 characters&quot;);
+        return false;
+      }
+
+      alert(&quot;Form Submitted Successfully&quot;);
+      return true;
+    }
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="sub-title" style="page-break-before: always;">Part 3(a): Include Image Slide Show and Digital Clock (using JavaScript and DOM)</div>
+    <div class="code-container">
+      <div class="file-badge">exp3/3a_slideshow_clock.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+
+  &lt;h2&gt;Digital Clock&lt;/h2&gt;
+  &lt;h3 id=&quot;clock&quot;&gt;&lt;/h3&gt;
+
+  &lt;h2&gt;Image Slideshow&lt;/h2&gt;
+
+  &lt;img id=&quot;slide&quot; src=&quot;img1.jpg&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;
+  &lt;br&gt;&lt;br&gt;
+
+  &lt;button onclick=&quot;change(-1)&quot;&gt;Previous&lt;/button&gt;
+  &lt;button onclick=&quot;change(1)&quot;&gt;Next&lt;/button&gt;
+
+  &lt;script&gt;
+
+    // Digital Clock
+    function clock() {
+      document.getElementById(&quot;clock&quot;).innerHTML = new Date().toLocaleTimeString();
+    }
+    setInterval(clock, 1000);
+    clock();
+
+    // Slideshow
+    let images = [&quot;img1.jpg&quot;, &quot;img2.jpg&quot;, &quot;img3.jpg&quot;];
+    let i = 0;
+
+    function change(n) {
+      i = (i + n + images.length) % images.length;
+      document.getElementById(&quot;slide&quot;).src = images[i];
+    }
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="sub-title" style="page-break-before: always;">Part 3(b): Online Quiz System (using JavaScript and DOM)</div>
+    <div class="code-container">
+      <div class="file-badge">exp3/3b_quiz.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+
+  &lt;h2&gt;Online Quiz&lt;/h2&gt;
+
+  1. Which language runs in a web browser?&lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;q1&quot; value=&quot;Java&quot;&gt; Java&lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;q1&quot; value=&quot;C&quot;&gt; C&lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;q1&quot; value=&quot;JavaScript&quot;&gt; JavaScript&lt;br&gt;&lt;br&gt;
+
+  2. What does CSS stand for?&lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;q2&quot; value=&quot;CSS&quot;&gt; Cascading Style Sheets&lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;q2&quot; value=&quot;Creative&quot;&gt; Creative Style System&lt;br&gt;&lt;br&gt;
+
+  &lt;button onclick=&quot;check()&quot;&gt;Submit&lt;/button&gt;
+
+  &lt;h3 id=&quot;result&quot;&gt;&lt;/h3&gt;
+
+  &lt;script&gt;
+    function check() {
+      let a = document.querySelector(&#039;input[name=&quot;q1&quot;]:checked&#039;);
+      let b = document.querySelector(&#039;input[name=&quot;q2&quot;]:checked&#039;);
+
+      let score = 0;
+
+      if (a &amp;&amp; a.value == &quot;JavaScript&quot;) score++;
+      if (b &amp;&amp; b.value == &quot;CSS&quot;) score++;
+
+      document.getElementById(&quot;result&quot;).innerHTML =
+        &quot;Your Score: &quot; + score + &quot; / 2&quot;;
+    }
+  &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 4 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 4 <span class="tag">AngularJS</span></div>
+      <div class="exp-question">Question: Use built-in Angular directives to show and hide elements and display lists of data.</div>
+    </div>
+    <div class="code-container">
+      <div class="file-badge">exp4/exp4.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app=&quot;app&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;AngularJS Directives&lt;/title&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-controller=&quot;Ctrl&quot;&gt;
+  &lt;h2&gt;Angular Directives: Show, Hide, and Lists&lt;/h2&gt;
+
+  &lt;!-- ng-model --&gt;
+  &lt;label&gt;Enter Name: &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&lt;/label&gt;
+  &lt;p&gt;Hello, {{name}}!&lt;/p&gt;
+
+  &lt;!-- ng-click and ng-show / ng-hide --&gt;
+  &lt;button ng-click=&quot;visible = !visible&quot;&gt;Toggle Visibility&lt;/button&gt;
+  &lt;p ng-show=&quot;visible&quot; style=&quot;color: green;&quot;&gt;ng-show: This element is visible.&lt;/p&gt;
+  &lt;p ng-hide=&quot;visible&quot; style=&quot;color: red;&quot;&gt;ng-hide: This element is hidden.&lt;/p&gt;
+
+  &lt;!-- ng-repeat --&gt;
+  &lt;h3&gt;List of Subjects (ng-repeat)&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li ng-repeat=&quot;x in items&quot;&gt;{{x}}&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;script&gt;
+    var app = angular.module(&quot;app&quot;, []);
+    app.controller(&quot;Ctrl&quot;, function($scope) {
+      $scope.name = &quot;Student&quot;;
+      $scope.visible = true;
+      $scope.items = [&quot;HTML5&quot;, &quot;CSS3&quot;, &quot;JavaScript&quot;, &quot;AngularJS&quot;, &quot;Node.js&quot;];
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 5 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 5 <span class="tag">AngularJS</span></div>
+      <div class="exp-question">Question: Design a shopping cart application using AngularJS. Your shopping webpage should have the provisions for selecting the list of items from different category, Once the items are selected on clicking the submit button the items in the cart with its price should be displayed.</div>
+    </div>
+    <div class="code-container">
+      <div class="file-badge">exp5/exp5.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app=&quot;cartApp&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;AngularJS Shopping Cart&lt;/title&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 360px; margin-top: 10px; }
+    th, td { border: 1px solid #aaa; padding: 6px; text-align: left; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body ng-controller=&quot;CartCtrl&quot;&gt;
+  &lt;h2&gt;Shopping Cart Application&lt;/h2&gt;
+
+  &lt;h3&gt;Select Items by Category&lt;/h3&gt;
+  &lt;div ng-repeat=&quot;p in products&quot;&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;checkbox&quot; ng-model=&quot;p.selected&quot;&gt;
+      &lt;b&gt;[{{p.category}}]&lt;/b&gt; {{p.name}} - Rs. {{p.price}}
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+
+  &lt;button ng-click=&quot;submitCart()&quot;&gt;Submit&lt;/button&gt;
+
+  &lt;div ng-show=&quot;submitted&quot;&gt;
+    &lt;h3&gt;Cart Items&lt;/h3&gt;
+    &lt;table ng-if=&quot;cart.length &gt; 0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Category&lt;/th&gt;
+        &lt;th&gt;Item&lt;/th&gt;
+        &lt;th&gt;Price (Rs.)&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr ng-repeat=&quot;item in cart&quot;&gt;
+        &lt;td&gt;{{item.category}}&lt;/td&gt;
+        &lt;td&gt;{{item.name}}&lt;/td&gt;
+        &lt;td&gt;{{item.price}}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th colspan=&quot;2&quot;&gt;Total Price&lt;/th&gt;
+        &lt;th&gt;Rs. {{total}}&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;p ng-if=&quot;cart.length === 0&quot;&gt;No items selected.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    angular.module(&quot;cartApp&quot;, []).controller(&quot;CartCtrl&quot;, function($scope) {
+      $scope.products = [
+        { category: &quot;Food&quot;, name: &quot;Rice&quot;, price: 60, selected: false },
+        { category: &quot;Food&quot;, name: &quot;Milk&quot;, price: 30, selected: false },
+        { category: &quot;Stationery&quot;, name: &quot;Pen&quot;, price: 10, selected: false },
+        { category: &quot;Stationery&quot;, name: &quot;Notebook&quot;, price: 40, selected: false },
+        { category: &quot;Electronics&quot;, name: &quot;Mouse&quot;, price: 350, selected: false }
+      ];
+
+      $scope.cart = [];
+      $scope.total = 0;
+      $scope.submitted = false;
+
+      $scope.submitCart = function() {
+        $scope.cart = $scope.products.filter(p =&gt; p.selected);
+        $scope.total = $scope.cart.reduce((sum, p) =&gt; sum + p.price, 0);
+        $scope.submitted = true;
+      };
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 6 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 6 <span class="tag">Node.js, MongoDB &amp; AngularJS</span></div>
+      <div class="exp-question">
+        Question: Design a Command Line Application for an online super market using Node JS and MongoDB.<br>
+        &nbsp;&nbsp;a) Perform a search based on product id or name.<br>
+        &nbsp;&nbsp;b) On retrieving the results, display the product details of different brands in table format with the Price field in sorted order using AngularJS.
+      </div>
+    </div>
+
+    <div class="sub-title">Part 6(a): Command Line Application using Node.js and MongoDB (Search by ID or Name)</div>
+    <div class="code-container">
+      <div class="file-badge">exp6/6a_search.js</div>
+      <pre><code>// Prerequisites:
+// npm install mongodb
+//
+// MongoDB Setup Commands in mongosh:
+// use supermarket;
+// db.products.insertMany([
+//   { id: 1, name: &quot;Soap&quot;, brand: &quot;Dove&quot;, price: 45 },
+//   { id: 2, name: &quot;Soap&quot;, brand: &quot;Lux&quot;, price: 30 },
+//   { id: 3, name: &quot;Rice&quot;, brand: &quot;IndiaGate&quot;, price: 90 },
+//   { id: 4, name: &quot;Rice&quot;, brand: &quot;Daawat&quot;, price: 80 }
+// ]);
+
+const { MongoClient } = require(&quot;mongodb&quot;);
+const readline = require(&quot;readline&quot;);
+
+const url = &quot;mongodb://localhost:27017&quot;;
+const client = new MongoClient(url);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+async function main() {
+  try {
+    await client.connect();
+    const collection = client.db(&quot;supermarket&quot;).collection(&quot;products&quot;);
+
+    rl.question(&quot;Enter product ID or name to search: &quot;, async (query) =&gt; {
+      const isNum = !isNaN(query) &amp;&amp; query.trim() !== &quot;&quot;;
+      const filter = isNum
+        ? { id: Number(query) }
+        : { name: { $regex: query, $options: &quot;i&quot; } };
+
+      const results = await collection.find(filter).toArray();
+      console.log(&quot;\n--- Search Results ---&quot;);
+      console.table(results);
+
+      rl.close();
+      await client.close();
+    });
+  } catch (err) {
+    console.error(&quot;Error:&quot;, err.message);
+    rl.close();
+  }
+}
+
+main();
+</code></pre>
+    </div>
+
+    <div class="sub-title" style="page-break-before: always;">Part 6(b): Display Product Details in Table Sorted by Price using AngularJS</div>
+    <div class="code-container">
+      <div class="file-badge">exp6/6b_table.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app=&quot;marketApp&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;Supermarket Products Sorted&lt;/title&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 420px; margin-top: 15px; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+    th { background: #eee; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body ng-controller=&quot;MarketCtrl&quot;&gt;
+  &lt;h2&gt;Supermarket Product Details&lt;/h2&gt;
+
+  &lt;label&gt;Search: &lt;input type=&quot;text&quot; ng-model=&quot;query&quot; placeholder=&quot;Filter by name/brand&quot;&gt;&lt;/label&gt;
+  &lt;br&gt;&lt;br&gt;
+
+  &lt;label&gt;Sort Order:
+    &lt;select ng-model=&quot;reverse&quot;&gt;
+      &lt;option ng-value=&quot;false&quot;&gt;Price: Low to High&lt;/option&gt;
+      &lt;option ng-value=&quot;true&quot;&gt;Price: High to Low&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;
+
+  &lt;!-- Table with Price field in sorted order using AngularJS orderBy --&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Product ID&lt;/th&gt;
+      &lt;th&gt;Product Name&lt;/th&gt;
+      &lt;th&gt;Brand&lt;/th&gt;
+      &lt;th&gt;Price (Rs.)&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr ng-repeat=&quot;p in products | filter:query | orderBy:&#039;price&#039;:reverse&quot;&gt;
+      &lt;td&gt;{{p.id}}&lt;/td&gt;
+      &lt;td&gt;{{p.name}}&lt;/td&gt;
+      &lt;td&gt;{{p.brand}}&lt;/td&gt;
+      &lt;td&gt;{{p.price}}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+
+  &lt;script&gt;
+    angular.module(&quot;marketApp&quot;, []).controller(&quot;MarketCtrl&quot;, function($scope) {
+      $scope.reverse = false;
+
+      // Product details of different brands retrieved from database
+      $scope.products = [
+        { id: 101, name: &quot;Soap&quot;, brand: &quot;Dove&quot;, price: 55 },
+        { id: 102, name: &quot;Soap&quot;, brand: &quot;Lux&quot;, price: 32 },
+        { id: 103, name: &quot;Soap&quot;, brand: &quot;Pears&quot;, price: 48 },
+        { id: 104, name: &quot;Rice&quot;, brand: &quot;Daawat&quot;, price: 75 },
+        { id: 105, name: &quot;Rice&quot;, brand: &quot;India Gate&quot;, price: 95 },
+        { id: 106, name: &quot;Shampoo&quot;, brand: &quot;Pantene&quot;, price: 120 },
+        { id: 107, name: &quot;Shampoo&quot;, brand: &quot;Sunsilk&quot;, price: 85 }
+      ];
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <!-- EXPERIMENT 7 -->
+  <div class="exp-wrapper" style="page-break-before: always;">
+    <div class="exp-header">
+      <div class="exp-title">Experiment 7 <span class="tag">Express.js &amp; AJAX</span></div>
+      <div class="exp-question">
+        Question: To Build an<br>
+        &nbsp;&nbsp;a) API by following REST syntax and Express JS and AJAX Application.
+      </div>
+    </div>
+
+    <div class="sub-title">Part 7(a) Server: REST API using Express.js</div>
+    <div class="code-container">
+      <div class="file-badge">exp7/server.js</div>
+      <pre><code>// Prerequisites:
+// npm install express cors
+// Run server: node server.js
+
+const express = require(&quot;express&quot;);
+const cors = require(&quot;cors&quot;);
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// In-memory data store
+let products = [
+  { id: 1, name: &quot;Laptop&quot;, price: 55000 },
+  { id: 2, name: &quot;Mouse&quot;, price: 450 },
+  { id: 3, name: &quot;Keyboard&quot;, price: 1100 }
+];
+
+// REST API: GET all products
+app.get(&quot;/api/products&quot;, (req, res) =&gt; {
+  res.json(products);
+});
+
+// REST API: POST create a new product
+app.post(&quot;/api/products&quot;, (req, res) =&gt; {
+  const item = {
+    id: products.length + 1,
+    name: req.body.name,
+    price: Number(req.body.price)
+  };
+  products.push(item);
+  res.status(201).json(item);
+});
+
+app.listen(3000, () =&gt; {
+  console.log(&quot;REST API Server running at http://localhost:3000&quot;);
+});
+</code></pre>
+    </div>
+
+    <div class="sub-title" style="page-break-before: always;">Part 7(a) Client: AJAX Application consuming the REST API</div>
+    <div class="code-container">
+      <div class="file-badge">exp7/client.html</div>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;REST API + AJAX Application&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 360px; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    th { background: #f4f4f4; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h2&gt;REST API and AJAX Application&lt;/h2&gt;
+
+  &lt;h3&gt;Add Product (POST via AJAX)&lt;/h3&gt;
+  &lt;input id=&quot;name&quot; placeholder=&quot;Product Name&quot;&gt;
+  &lt;input id=&quot;price&quot; type=&quot;number&quot; placeholder=&quot;Price&quot;&gt;
+  &lt;button onclick=&quot;addProduct()&quot;&gt;Add&lt;/button&gt;
+
+  &lt;h3&gt;Product List (GET via AJAX)&lt;/h3&gt;
+  &lt;button onclick=&quot;getProducts()&quot;&gt;Refresh Products&lt;/button&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;ID&lt;/th&gt;
+        &lt;th&gt;Product Name&lt;/th&gt;
+        &lt;th&gt;Price (Rs.)&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id=&quot;tableBody&quot;&gt;&lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;script&gt;
+    const API = &quot;http://localhost:3000/api/products&quot;;
+
+    // AJAX GET request
+    async function getProducts() {
+      try {
+        const res = await fetch(API);
+        const data = await res.json();
+        const tbody = document.getElementById(&quot;tableBody&quot;);
+        tbody.innerHTML = &quot;&quot;;
+
+        data.forEach(p =&gt; {
+          tbody.innerHTML += `&lt;tr&gt;&lt;td&gt;${p.id}&lt;/td&gt;&lt;td&gt;${p.name}&lt;/td&gt;&lt;td&gt;${p.price}&lt;/td&gt;&lt;/tr&gt;`;
+        });
+      } catch (err) {
+        alert(&quot;Make sure server.js is running on http://localhost:3000&quot;);
+      }
+    }
+
+    // AJAX POST request
+    async function addProduct() {
+      const name = document.getElementById(&quot;name&quot;).value.trim();
+      const price = document.getElementById(&quot;price&quot;).value.trim();
+      if (!name || !price) {
+        alert(&quot;Please enter both product name and price&quot;);
+        return;
+      }
+
+      await fetch(API, {
+        method: &quot;POST&quot;,
+        headers: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+        body: JSON.stringify({ name, price })
+      });
+
+      document.getElementById(&quot;name&quot;).value = &quot;&quot;;
+      document.getElementById(&quot;price&quot;).value = &quot;&quot;;
+      getProducts();
+    }
+
+    // Initial load
+    getProducts();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+  </div>
+
+</body>
+</html>

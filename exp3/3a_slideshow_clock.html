@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Slideshow and Digital Clock</title>
-</head>
+
 <body>
+
   <h2>Digital Clock</h2>
   <h3 id="clock"></h3>
 
   <h2>Image Slideshow</h2>
-  <img id="slide" src="img1.jpg" width="400" height="250" alt="Slider image">
+
+  <img id="slide" src="img1.jpg" width="300" height="200">
   <br><br>
+
   <button onclick="change(-1)">Previous</button>
   <button onclick="change(1)">Next</button>
 
   <script>
-    // Digital Clock
-    function updateClock() {
-      let d = new Date();
-      document.getElementById("clock").textContent = d.toLocaleTimeString();
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
 
-    // Image Slideshow
+    // Digital Clock
+    function clock() {
+      document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+    }
+    setInterval(clock, 1000);
+    clock();
+
+    // Slideshow
     let images = ["img1.jpg", "img2.jpg", "img3.jpg"];
     let i = 0;
 
-    function change(step) {
-      i = (i + step + images.length) % images.length;
+    function change(n) {
+      i = (i + n + images.length) % images.length;
       document.getElementById("slide").src = images[i];
     }
 
-    // Auto slide every 3 seconds
-    setInterval(function() {
-      change(1);
-    }, 3000);
   </script>
 </body>
+
 </html>

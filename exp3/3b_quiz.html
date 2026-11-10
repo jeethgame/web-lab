@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Online Quiz System</title>
-</head>
+
 <body>
-  <h2>Online Quiz System</h2>
 
-  <form id="quizForm">
-    <p><b>1. Which language runs in a web browser?</b></p>
-    <label><input type="radio" name="q1" value="Java"> Java</label><br>
-    <label><input type="radio" name="q1" value="C"> C</label><br>
-    <label><input type="radio" name="q1" value="JavaScript"> JavaScript</label><br>
+  <h2>Online Quiz</h2>
 
-    <p><b>2. What does CSS stand for?</b></p>
-    <label><input type="radio" name="q2" value="Cascading Style Sheets"> Cascading Style Sheets</label><br>
-    <label><input type="radio" name="q2" value="Creative Style System"> Creative Style System</label><br>
-    <br>
+  1. Which language runs in a web browser?<br>
+  <input type="radio" name="q1" value="Java"> Java<br>
+  <input type="radio" name="q1" value="C"> C<br>
+  <input type="radio" name="q1" value="JavaScript"> JavaScript<br><br>
 
-    <button type="button" onclick="submitQuiz()">Submit Quiz</button>
-  </form>
+  2. What does CSS stand for?<br>
+  <input type="radio" name="q2" value="CSS"> Cascading Style Sheets<br>
+  <input type="radio" name="q2" value="Creative"> Creative Style System<br><br>
 
-  <h3 id="score"></h3>
+  <button onclick="check()">Submit</button>
+
+  <h3 id="result"></h3>
 
   <script>
-    function submitQuiz() {
-      const answers = {
-        q1: "JavaScript",
-        q2: "Cascading Style Sheets"
-      };
+    function check() {
+      let a = document.querySelector('input[name="q1"]:checked');
+      let b = document.querySelector('input[name="q2"]:checked');
 
       let score = 0;
-      let form = document.getElementById("quizForm");
 
-      for (let q in answers) {
-        if (form.elements[q].value === answers[q]) {
-          score++;
-        }
-      }
+      if (a && a.value == "JavaScript") score++;
+      if (b && b.value == "CSS") score++;
 
-      document.getElementById("score").textContent =
+      document.getElementById("result").innerHTML =
         "Your Score: " + score + " / 2";
     }
   </script>
+
 </body>
+
 </html>
