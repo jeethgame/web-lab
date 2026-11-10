@@ -1,0 +1,61 @@
+<!-- ============================================================== -->
+<!-- Experiment 2: CSS Types and Selectors                          -->
+<!-- Contains 2 files:                                              -->
+<!--   1. exp2.html (Main HTML with Inline and Internal CSS)        -->
+<!--   2. style.css (External CSS with Universal, Class, ID)        -->
+<!-- ============================================================== -->
+
+
+<!-- =================== FILE 1: exp2.html =================== -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Types and Selectors</title>
+  
+  <!-- 1. External CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 2. Internal CSS -->
+  <style>
+    /* Element Selector */
+    h2 {
+      color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- 3. Inline CSS -->
+  <h1 style="color: crimson;">1. Inline CSS Heading</h1>
+
+  <!-- Styled via Internal CSS (Element Selector) -->
+  <h2>2. Internal CSS Heading (Element Selector)</h2>
+
+  <!-- Styled via External CSS (Class Selector) -->
+  <p class="highlight">3. External CSS Paragraph (Class Selector)</p>
+
+  <!-- Styled via External CSS (ID Selector) -->
+  <p id="unique">4. External CSS Paragraph (ID Selector)</p>
+</body>
+</html>
+
+
+<!-- =================== FILE 2: style.css =================== -->
+
+/* Universal Selector */
+* {
+  font-family: Arial, sans-serif;
+}
+
+/* Class Selector */
+.highlight {
+  background-color: #fff2a8;
+  padding: 8px;
+  border-left: 4px solid orange;
+}
+
+/* ID Selector */
+#unique {
+  color: royalblue;
+  font-weight: bold;
+}

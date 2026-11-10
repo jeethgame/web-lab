@@ -1,0 +1,118 @@
+<!-- ================================================================= -->
+<!-- Experiment 3: DHTML Validation, Slideshow + Clock, and Quiz       -->
+<!-- Contains 3 files:                                                 -->
+<!--   1. 3_validation.html       (DHTML Form Validation)             -->
+<!--   2. 3a_slideshow_clock.html (Image Slideshow & Digital Clock)   -->
+<!--   3. 3b_quiz.html            (Online Quiz System)                -->
+<!-- ================================================================= -->
+
+
+<!-- =================== FILE 1: 3_validation.html =================== -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Form Validation</h2>
+
+  <form onsubmit="return validate()">
+    Name: <input id="name"><br><br>
+    Email: <input id="email"><br><br>
+    Password: <input type="password" id="pass"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validate() {
+      let n = document.getElementById("name").value;
+      let e = document.getElementById("email").value;
+      let p = document.getElementById("pass").value;
+
+      if (n == "") {
+        alert("Enter Name");
+        return false;
+      }
+      if (!/\S+@\S+\.\S+/.test(e)) {
+        alert("Invalid Email");
+        return false;
+      }
+      if (p.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+      }
+
+      alert("Form Submitted Successfully");
+      return true;
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- =================== FILE 2: 3a_slideshow_clock.html =================== -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Digital Clock</h2>
+  <h3 id="clock"></h3>
+
+  <h2>Image Slideshow</h2>
+  <img id="slide" src="img1.jpg" width="300" height="200">
+  <br><br>
+  <button onclick="change(-1)">Previous</button>
+  <button onclick="change(1)">Next</button>
+
+  <script>
+    // Digital Clock
+    function clock() {
+      document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+    }
+    setInterval(clock, 1000);
+    clock();
+
+    // Image Slideshow
+    let images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+    let i = 0;
+
+    function change(n) {
+      i = (i + n + images.length) % images.length;
+      document.getElementById("slide").src = images[i];
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- =================== FILE 3: 3b_quiz.html =================== -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Online Quiz</h2>
+
+  1. Which language runs in a web browser?<br>
+  <input type="radio" name="q1" value="Java"> Java<br>
+  <input type="radio" name="q1" value="C"> C<br>
+  <input type="radio" name="q1" value="JavaScript"> JavaScript<br><br>
+
+  2. What does CSS stand for?<br>
+  <input type="radio" name="q2" value="CSS"> Cascading Style Sheets<br>
+  <input type="radio" name="q2" value="Creative"> Creative Style System<br><br>
+
+  <button onclick="check()">Submit</button>
+  <h3 id="result"></h3>
+
+  <script>
+    function check() {
+      let a = document.querySelector('input[name="q1"]:checked');
+      let b = document.querySelector('input[name="q2"]:checked');
+      let score = 0;
+
+      if (a && a.value == "JavaScript") score++;
+      if (b && b.value == "CSS") score++;
+
+      document.getElementById("result").innerHTML = "Your Score: " + score + " / 2";
+    }
+  </script>
+</body>
+</html>

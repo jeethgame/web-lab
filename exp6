@@ -1,0 +1,116 @@
+/* ============================================================== */
+/* Experiment 6: Online Super Market (Node.js + MongoDB + Angular) */
+/* Contains 2 files:                                              */
+/*   1. 6a_search.js  (Node.js & MongoDB CLI Search)              */
+/*   2. 6b_table.html (AngularJS Table Sorted by Price)           */
+/* ============================================================== */
+
+
+// =================== FILE 1: 6a_search.js ===================
+// Prerequisites: npm install mongodb
+// MongoDB Setup (in mongosh):
+//   use supermarket;
+//   db.products.insertMany([
+//     { id: 1, name: "Soap", brand: "Dove", price: 45 },
+//     { id: 2, name: "Soap", brand: "Lux", price: 30 },
+//     { id: 3, name: "Rice", brand: "IndiaGate", price: 90 },
+//     { id: 4, name: "Rice", brand: "Daawat", price: 80 }
+//   ]);
+
+const { MongoClient } = require("mongodb");
+const readline = require("readline");
+
+const url = "mongodb://localhost:27017";
+const client = new MongoClient(url);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+async function main() {
+  try {
+    await client.connect();
+    const collection = client.db("supermarket").collection("products");
+
+    rl.question("Enter product ID or name to search: ", async (query) => {
+      const isNum = !isNaN(query) && query.trim() !== "";
+      const filter = isNum
+        ? { id: Number(query) }
+        : { name: { $regex: query, $options: "i" } };
+
+      const results = await collection.find(filter).toArray();
+      console.log("\n--- Search Results ---");
+      console.table(results);
+
+      rl.close();
+      await client.close();
+    });
+  } catch (err) {
+    console.error("Error:", err.message);
+    rl.close();
+  }
+}
+
+main();
+
+
+// =================== FILE 2: 6b_table.html ===================
+/*
+<!DOCTYPE html>
+<html ng-app="marketApp">
+<head>
+  <title>Supermarket Products Sorted</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { border-collapse: collapse; width: 420px; margin-top: 15px; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+    th { background: #eee; }
+  </style>
+</head>
+<body ng-controller="MarketCtrl">
+  <h2>Supermarket Product Details</h2>
+
+  <label>Search: <input type="text" ng-model="query" placeholder="Filter by name/brand"></label>
+  <br><br>
+
+  <label>Sort Order:
+    <select ng-model="reverse">
+      <option ng-value="false">Price: Low to High</option>
+      <option ng-value="true">Price: High to Low</option>
+    </select>
+  </label>
+
+  <table>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Brand</th>
+      <th>Price (Rs.)</th>
+    </tr>
+    <tr ng-repeat="p in products | filter:query | orderBy:'price':reverse">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.brand}}</td>
+      <td>{{p.price}}</td>
+    </tr>
+  </table>
+
+  <script>
+    angular.module("marketApp", []).controller("MarketCtrl", function($scope) {
+      $scope.reverse = false;
+      $scope.products = [
+        { id: 101, name: "Soap", brand: "Dove", price: 55 },
+        { id: 102, name: "Soap", brand: "Lux", price: 32 },
+        { id: 103, name: "Soap", brand: "Pears", price: 48 },
+        { id: 104, name: "Rice", brand: "Daawat", price: 75 },
+        { id: 105, name: "Rice", brand: "India Gate", price: 95 },
+        { id: 106, name: "Shampoo", brand: "Pantene", price: 120 },
+        { id: 107, name: "Shampoo", brand: "Sunsilk", price: 85 }
+      ];
+    });
+  </script>
+</body>
+</html>
+*/
